@@ -21,7 +21,12 @@
   box-example-title: [Пример],
 )
 
-#set par(justify: true, leading: 0.72em, first-line-indent: 1.2em, spacing: 0.35em)
+#set par(
+  justify: true,
+  leading: 0.72em,
+  first-line-indent: 1.2em,
+  spacing: 0.35em,
+)
 #set heading(numbering: "1.", outlined: true)
 
 #let purple = rgb("#373fcf")
@@ -34,15 +39,30 @@
 #let green-soft = rgb("#f1f7f1")
 #let ink = rgb("#2b2b2b")
 
-#let simple-box(title, body, line_color, fill_color, title_color: auto, dotted: false) = [
-  #let actual_title_color = if title_color == auto { line_color } else { title_color }
+#let simple-box(
+  title,
+  body,
+  line_color,
+  fill_color,
+  title_color: auto,
+  dotted: false,
+) = [
+  #let actual_title_color = if title_color == auto { line_color } else {
+    title_color
+  }
   #set par(first-line-indent: 0pt)
   #block(
     above: 0.35em,
     below: 0.45em,
     inset: 0.85em,
     fill: fill_color,
-    stroke: (left: (thickness: 3pt, paint: line_color, dash: if dotted { "dotted" } else { "solid" })),
+    stroke: (
+      left: (
+        thickness: 3pt,
+        paint: line_color,
+        dash: if dotted { "dotted" } else { "solid" },
+      ),
+    ),
   )[
     #text(8.4pt, weight: "bold", fill: actual_title_color)[#smallcaps(title)]
     #v(0.25em)
@@ -53,8 +73,20 @@
 #let theorem(body) = simple-box([Теорема], body, rgb("#8d0000"), rgb("#fcf7f7"))
 #let def(body) = simple-box([Определение], body, purple, purple-soft)
 #let note(body) = simple-box([Замечание], body, gray, gray-soft, dotted: true)
-#let example(body) = simple-box([Пример], body, amber, amber-soft, title_color: amber)
-#let algo(body) = simple-box([Алгоритм], body, green, green-soft, title_color: green)
+#let example(body) = simple-box(
+  [Пример],
+  body,
+  amber,
+  amber-soft,
+  title_color: amber,
+)
+#let algo(body) = simple-box(
+  [Алгоритм],
+  body,
+  green,
+  green-soft,
+  title_color: green,
+)
 
 #set par(first-line-indent: 0pt)
 #text(14pt, weight: "semibold", fill: purple)[Оглавление]
@@ -332,8 +364,8 @@ $M_3 = {V_1, V_4}$
 
 #pagebreak()
 
-= Лекция 4 и 5 
-Скип 
+= Лекция 4 и 5
+Скип
 
 #pagebreak()
 
@@ -346,14 +378,14 @@ $M_3 = {V_1, V_4}$
 
 = Лекция 7
 
-Рассмотрим $f(x_1, x_2) = not ( not x_1  or not x_2)$
+Рассмотрим $f(x_1, x_2) = not ( not x_1 or not x_2)$
 
-$f not in not l_0 , f not in not l_1 , f not in L $
+$f not in not l_0 , f not in not l_1 , f not in L$
 
 $
-4) S -> 
+  4) S ->
 $
-// Здесь надо вставит табличку 
+// Здесь надо вставит табличку
 $f not in S$
 
 
@@ -363,7 +395,7 @@ $f(gamma_1 , gamma_2) = not f()$
 
 
 #def[
-  Гиперкуб - это математическая модель N мерного пространства заданное ввиде графа каждая вершина которого имеет уникальный двоичный идентификатор длины N (с N разрядами) и две вершины соединяются ребром тогда и только тогда , когда их идентификатор имеет различие  в одном разряде 
+  Гиперкуб - это математическая модель N мерного пространства заданное ввиде графа каждая вершина которого имеет уникальный двоичный идентификатор длины N (с N разрядами) и две вершины соединяются ребром тогда и только тогда , когда их идентификатор имеет различие  в одном разряде
 ]
 
 #def[
